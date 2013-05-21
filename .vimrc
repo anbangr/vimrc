@@ -35,3 +35,15 @@ let Tlist_Close_On_Select=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Show_One_File=1
+
+" cscope auto-load
+function! LoadCscope()
+   let db = findfile("cscope.out", ".;")
+   if (!empty(db))
+      let path = strpart(db, 0, match(db, "/cscope.out$"))
+      set nocscopeverbose " suppress 'duplicate connection' error
+      exe "cs add " . db . " " . path
+      set cscopeverbose
+   endif
+endfunction
+au BufEnter /* call LoadCscope()"
