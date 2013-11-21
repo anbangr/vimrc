@@ -11,8 +11,8 @@ set spl=en_us spell
 syntax on
 " source ~/.vim/plugin/cscope_maps.vim
 
-"colorscheme peachpuff
-colorscheme morning
+colorscheme peachpuff
+"colorscheme morning
 "colorscheme desert
 
 " LaTex
