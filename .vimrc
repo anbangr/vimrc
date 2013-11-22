@@ -50,3 +50,4 @@ au BufEnter /* call LoadCscope()"
 
 " Objective-C
 set runtimepath+=~/.vim/src/ultisnips_rep 
+call pathogen#infect()
