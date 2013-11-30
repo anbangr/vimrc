@@ -7,7 +7,7 @@ set smarttab
 set autoindent
 set hlsearch
 set nocscopeverbose
-set spl=en_us spell
+" set spl=en_us spell
 syntax on
 " source ~/.vim/plugin/cscope_maps.vim
 
@@ -52,3 +52,18 @@ au BufEnter /* call LoadCscope()"
 set runtimepath+=~/.vim/src/ultisnips_rep 
 call pathogen#infect()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"clang
+let g:clang_use_library      = 1
+let g:clang_auto_select      = 0
+let g:clang_complete_auto    = 1
+let g:clang_complete_copen   = 1
+let g:clang_complete_macros  = 1
+let g:clang_complete_patters = 1
+set completeopt=menu,longest
+
+let g:clang_library_path = '/usr/lib/llvm-3.4/lib'
+"let g:clang_auto_user_options = "-I/usr/include/c++/4.6, .clang_complete"
+"let g:clang_auto_user_options = "-I/usr/include/c++/4.6"
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
