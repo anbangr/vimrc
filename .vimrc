@@ -59,7 +59,7 @@ let g:clang_auto_select      = 0
 let g:clang_complete_auto    = 1
 let g:clang_complete_copen   = 1
 let g:clang_complete_macros  = 1
-let g:clang_complete_patters = 1
+let g:clang_complete_patterns = 1
 set completeopt=menu,longest
 
 let g:clang_library_path = '/usr/lib/llvm-3.4/lib'
