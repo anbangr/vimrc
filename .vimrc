@@ -1,19 +1,18 @@
 " Common Editting 
-set ts=3
+set ts=2
 set so=999
-set sw=3
+set sw=2
 set expandtab
 set smarttab
 set autoindent
 set hlsearch
 set nocscopeverbose
-" set spl=en_us spell
+set spl=en_us spell
 syntax on
-" source ~/.vim/plugin/cscope_maps.vim
 
-colorscheme peachpuff
-"colorscheme morning
-"colorscheme desert
+colorscheme slate
+
+let g:languagetool_jar='$HOME/.vim/src/LanguageTool-2.6/languagetool-commandline.jar'
 
 " LaTex
 filetype plugin on
@@ -24,7 +23,6 @@ let g:tex_flafor='pdflatex'
 
 " ctag
 set tags=~/pytags
-
 
 " TagList
 nnoremap <silent> <F8> :TlistToggle<CR>
@@ -48,22 +46,75 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()"
 
-" Objective-C
-set runtimepath+=~/.vim/src/ultisnips_rep 
-call pathogen#infect()
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+""""""""""""""""""""""
+"Vundle
+""""""""""""""""""""""
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
-"clang
-let g:clang_use_library      = 1
-let g:clang_auto_select      = 0
-let g:clang_complete_auto    = 1
-let g:clang_complete_copen   = 1
-let g:clang_complete_macros  = 1
-let g:clang_complete_patterns = 1
-set completeopt=menu,longest
+""""""""""""""""""""""
+"Powerline
+""""""""""""""""""""""
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+set laststatus=2
 
-let g:clang_library_path = '/usr/lib/llvm-3.4/lib'
-"let g:clang_auto_user_options = "-I/usr/include/c++/4.6, .clang_complete"
-"let g:clang_auto_user_options = "-I/usr/include/c++/4.6"
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'clang_complete'
+""""""""""""""""""""""
+"Fugitive
+""""""""""""""""""""""
+"Fugitive is a Git plugin. It basically wraps most Git commands so that you can call them from inside Vim. They are prefixed with G, for example Gcommit For example it allows you to stage files directly from Vim and make the commit. It also leverages VimDiff to perform conflict resolution, blame and the like. There’s a whole set of screencasts on how to use it available from Vim Casts which I recommend watching.
+
+Bundle 'tpope/vim-fugitive'
+
+""""""""""""""""""""""
+"NerdTree
+""""""""""""""""""""""
+Bundle 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<CR>
+
+""""""""""""""""""""""
+"PythonMode
+"""""""""""""""""""""
+Bundle 'klen/python-mode'
+
+" Python-mode
+" Activate rope
+" Keys:
+" K             Show python docs
+" <Ctrl-Space>  Rope autocomplete
+" <Ctrl-c>g     Rope goto definition
+" " <Ctrl-c>d     Rope show documentation
+" " <Ctrl-c>f     Rope find occurrences
+" " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 1
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+
+" Support virtualenv
+let g:pymode_virtualenv = 1
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" Don't autofold code
+let g:pymode_folding = 0
