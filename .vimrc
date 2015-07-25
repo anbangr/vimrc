@@ -86,7 +86,7 @@ Bundle 'klen/python-mode'
 " <Ctrl-c>g     Rope goto definition
 " " <Ctrl-c>d     Rope show documentation
 " " <Ctrl-c>f     Rope find occurrences
-" " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" " <Ctrl-c>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
 " [[            Jump on previous class or function (normal, visual, operator modes)
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
@@ -108,7 +108,7 @@ let g:pymode_virtualenv = 1
 
 " Enable breakpoints plugin
 let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_breakpoint_bind = '<Ctrl-c>b'
 
 " syntax highlighting
 let g:pymode_syntax = 1
