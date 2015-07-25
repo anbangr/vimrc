@@ -21,8 +21,8 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flafor='pdflatex'
 
-" ctag
-set tags=~/pytags
+" autotag
+source ~/.vim/autotag/autotag.vim
 
 " TagList
 nnoremap <silent> <F8> :TlistToggle<CR>
