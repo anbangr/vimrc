@@ -22,7 +22,7 @@ filetype indent on
 let g:tex_flafor='pdflatex'
 
 " autotag
-source ~/.vim/autotag/autotag.vim
+" source ~/.vim/autotag/autotag.vim
 
 " TagList
 nnoremap <silent> <F8> :TlistToggle<CR>
