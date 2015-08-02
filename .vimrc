@@ -21,6 +21,9 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flafor='pdflatex'
 
+" Salt
+set nocompatible
+
 " autotag
 " source ~/.vim/autotag/autotag.vim
 
@@ -45,6 +48,12 @@ function! LoadCscope()
    endif
 endfunction
 au BufEnter /* call LoadCscope()"
+
+""""""""""""""""""""""
+"clang
+""""""""""""""""""""""
+let g:clang_c_options = '-std=gnu11' 
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++' 
 
 """"""""""""""""""""""
 "Vundle
